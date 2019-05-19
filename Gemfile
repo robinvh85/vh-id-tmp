@@ -68,3 +68,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'doorkeeper'
 gem 'dotenv-rails'
 gem 'bcrypt'
+gem 'warden'

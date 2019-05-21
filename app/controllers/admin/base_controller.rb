@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 module Admin
-  class BaseController < ActionController::Base
-    include AdminHelper
-
+  # BaseController
+  class BaseController < ApplicationController
     layout 'admin'
 
-    prepend_before_action :authenticate!
+    prepend_before_action :authenticate_admin!
   end
 end

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ADMIN</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if current_admin %>
+      <%= link_to 'Logout', destroy_adminUser_session_path, {method: 'delete'} %>
+    <% else %>
+      <%= link_to 'Login', new_adminUser_session_path %>
+    <% end %>
+    <div class='header_notice'>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+    <%= yield %>
+  </body>
+</html>

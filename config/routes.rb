@@ -16,4 +16,9 @@ Rails.application.routes.draw do
     get '/home', to: 'home#index'
     get '/users', to: 'users#index'
   end
+
+  # match '/admin/omniauth_callbacks', :to => 'admin/omniauth_callbacks#create', via: [:get, :post]
+  # get '/admin/omniauth_callbacks/failure', :to => 'admin/omniauth_callbacks#failure'
+
+  get '/auth/:provider/callback', to: 'admin/omniauth_callbacks#index'
 end

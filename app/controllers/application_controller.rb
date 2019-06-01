@@ -2,9 +2,13 @@
 
 # ApplicationController
 class ApplicationController < ActionController::Base
-  include Admin::DeviseHelper
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  layout :layout_by_resource
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+  end
 
   private
 
@@ -17,12 +21,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Setting for devise redirect after sign_in and sign_out
+  # Redirect to url after loginned
   def after_sign_in_path_for(resource)
     admin_users_path if resource.is_a?(AdminUser)
+    products_path
   end
 
+  # Redirect to url after logout
   def after_sign_out_path_for(resource)
     admin_home_path if resource == :adminUser
+    root_path
   end
 end

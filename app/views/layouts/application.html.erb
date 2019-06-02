@@ -10,11 +10,14 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <%= link_to 'Logout', logout_path %>
-    <% else %>
-      <%= link_to 'Login', login_path %>
-    <% end %>
+    <header>
+      <% if current_user %>
+        <%= link_to 'Logout', destroy_user_session_path, {method: 'delete'} %>
+      <% else %>
+        <%= link_to 'Login', new_user_session_path %>
+      <% end %>
+      <%= link_to 'Products', products_path %>
+    </header>
     <div class='header_notice'>
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>

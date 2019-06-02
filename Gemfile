@@ -67,5 +67,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # New gem
 gem 'doorkeeper'
 gem 'dotenv-rails'
+
+# Authentication
 gem 'bcrypt'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-github'

@@ -11,6 +11,8 @@
 
   <body>
     <% if current_admin %>
+      <%= link_to 'Apps', admin_applications_path %>
+      <%= link_to 'Users', admin_users_path %>
       <%= link_to 'Logout', destroy_adminUser_session_path, {method: 'delete'} %>
     <% else %>
       <%= link_to 'Login', new_adminUser_session_path %>

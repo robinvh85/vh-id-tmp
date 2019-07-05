@@ -12,24 +12,13 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # Setting layout for devise pages
-  def layout_by_resource
-    if devise_controller?
-      'admin'
-    else
-      'application'
-    end
-  end
-
   # Redirect to url after loginned
-  def after_sign_in_path_for(resource)
-    admin_users_path if resource.is_a?(AdminUser)
+  def after_sign_in_path_for(_resource)
     products_path
   end
 
   # Redirect to url after logout
-  def after_sign_out_path_for(resource)
-    admin_home_path if resource == :adminUser
+  def after_sign_out_path_for(_resource)
     root_path
   end
 end

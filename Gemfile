@@ -70,6 +70,7 @@ gem 'dotenv-rails'
 
 # Authentication
 gem 'bcrypt'
+gem 'cancancan', '~> 1.15'
 gem 'devise'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook', '~> 5.0'

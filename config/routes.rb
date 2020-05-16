@@ -8,11 +8,13 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :products
+  resources :home
+  resources :tags
 
   namespace :admin do
-    get '/home', to: 'home#index'
+    get '/', to: 'home#index'
     get '/home', to: 'home#index'
     get '/users', to: 'users#index'
+    resources :applications
   end
 end
